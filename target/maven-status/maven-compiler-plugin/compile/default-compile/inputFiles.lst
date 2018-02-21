@@ -1,0 +1,16 @@
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/dao/ProdutoDao.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/controller/CarrinhoComprasController.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/conf/ServletSpringMVC.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/model/Preco.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/model/CarrinhoCompras.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/conf/AppWebConfiguration.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/validation/ProdutoValidation.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/controller/PagamentoController.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/infra/FileSaver.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/controller/ProdutosController.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/model/TipoPreco.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/conf/JPAConfiguration.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/controller/HomeController.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/model/CarrinhoItem.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/model/Produto.java
+/Users/andreybevilacqua/Documents/java/alura/workspace/casadocodigo/src/main/java/br/com/casadocodigo/loja/model/DadosPagamento.java
