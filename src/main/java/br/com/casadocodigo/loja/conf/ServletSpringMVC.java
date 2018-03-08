@@ -16,7 +16,10 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// Classes para iniciarlizar junto com o Spring.
-		return new Class[] {AppWebConfiguration.class, JPAConfiguration.class, SecurityConfiguration.class};
+		return new Class[] {AppWebConfiguration.class
+						 , JPAConfiguration.class
+						 , SecurityConfiguration.class
+						 , JPAProductionConfiguration.class};
 	}
 
 	@Override
@@ -67,12 +70,12 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	// Durante a subida do servidor, o profile que a gente quer que fique ativo, que funcione,
 	// é o profile dev.
 	// Para que ele encontre o profile, ele tem que ficar "ouvindo os contextos", portanto, usar o Listener que entregamos pra ele.
-	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
-		super.onStartup(servletContext);
-		servletContext.addListener(RequestContextListener.class);
-		servletContext.setInitParameter("spring.profiles.active", "dev");
-	}
+//	@Override
+//	public void onStartup(ServletContext servletContext) throws ServletException {
+//		super.onStartup(servletContext);
+//		servletContext.addListener(RequestContextListener.class);
+//		servletContext.setInitParameter("spring.profiles.active", "dev");
+//	} // Método comentado pois, sempre que ele fazer o startup, ele setaria o profile como "dev". Para ir para o Heroku, temos que tirar isso.
 
 }
 

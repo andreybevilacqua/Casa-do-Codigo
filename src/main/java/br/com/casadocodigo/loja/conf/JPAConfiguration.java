@@ -19,19 +19,21 @@ public class JPAConfiguration {
 
 	@Bean
 	// O DataSource não pode ser injetado diretamente pelo método, tem que criar um parâmetro...
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties aditionalProperties) {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.model");
 		factoryBean.setDataSource(dataSource);
 		
 		JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter);
-		factoryBean.setJpaProperties(aditionalProperties());
+		factoryBean.setJpaProperties(aditionalProperties);
 		
 		return factoryBean;
 	}
 
-	private Properties aditionalProperties() {
+	@Bean
+	@Profile("dev")
+	public Properties aditionalProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		properties.setProperty("hibernate.show_sql", "true");
