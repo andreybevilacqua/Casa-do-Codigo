@@ -16,7 +16,22 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class JPAProductionConfiguration {
 
 	@Autowired
-	private Environment env;
+	private Environment environment;
+
+	@Bean
+	public DataSource dataSource() throws URISyntaxException {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		
+		// usuario:senha@host:porta/path
+		URI dbUrl = new URI(environment.getProperty("DATABASE_URL"));
+		
+		dataSource.setUrl("jdbc:postgresql://"+dbUrl.getHost()+":"+dbUrl.getPort()+dbUrl.getPath());
+	    dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
+	    dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
+		
+		return dataSource;
+	}
 	
 	@Bean
 	public Properties aditionalProperties() {
@@ -25,22 +40,5 @@ public class JPAProductionConfiguration {
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		return properties;
-	}
-
-	@Bean
-	public DataSource dataSource() throws URISyntaxException {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		
-		// usuario:senha@host:porta/path
-		URI dbUrl = new URI(env.getProperty("DATABASE_URL"));
-		
-		dataSource.setUrl("jdbc:postgre://" + dbUrl.getHost() + ":" + dbUrl.getPort() + dbUrl.getPath());
-		dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]); // Posição 0 é o usuário.
-		dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]); // Posição 1 é a senha.
-		
-		
-		
-		return dataSource;
 	}
 }
