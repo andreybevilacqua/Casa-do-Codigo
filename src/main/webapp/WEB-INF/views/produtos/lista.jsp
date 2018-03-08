@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -37,6 +38,13 @@
 				<li><a href="${s:mvcUrl('PC#listar').build() }">Lista de Produtos</a></li>
 				<li><a href="${s:mvcUrl('PC#form').build() }">Cadastro de Produtos</a></li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"> <!-- principal = nome padrão que todos os frameworks de seguranca usam para dizer -->
+								<!-- esse é o usuário logado atualmente -->
+					<security:authentication property="principal" var="usuario"/>
+					Usuário: ${usuario.username }
+				</a></li>
+			</ul>
 		</div>
 	</div>
 	</nav>
@@ -53,6 +61,7 @@
 				<!-- Os titulos da tabela -->
 				<th>Título</th>
 				<th>Descrição</th>
+				<th>Preços</th>
 				<th>Páginas</th>
 			</tr>
 			<!-- As infos de cada campo da tabela: busca no banco e faz um loop pra imprimir eles-->
@@ -62,6 +71,7 @@
 						href="${s:mvcUrl('PC#detalhe').arg(0,produto.id).build() }">
 							${produto.titulo} </a></td>
 					<td>${produto.descricao}</td>
+					<td>${produto.precos }</td>
 					<td>${produto.paginas}</td>
 				</tr>
 			</c:forEach>

@@ -2,6 +2,7 @@ package br.com.casadocodigo.loja.conf;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.cache.CacheManager;
@@ -16,16 +17,22 @@ import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.http.MediaType;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -144,5 +151,41 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter { // Para o Spr
 		super.configureContentNegotiation(configurer);
 	}
 	
+	// Configurações de Intercept. Adicionar um interceptador.
+	// Aqui o Spring vai fazer que o ?locate no front é um comando para ele e ele vai executar.
+	@Override
+		public void addInterceptors(InterceptorRegistry registry) {
+			registry.addInterceptor(new LocaleChangeInterceptor());
+		}
+	
+	// Para o Spring guardar essa informação, de cada usuário, dizemos para ele que ele deve colocar isso no Cookie.
+	// Portanto, a info de Locale ficará dentro do Cookie do usuário.
+	@Bean
+	public LocaleResolver localeResolver() {
+		return new CookieLocaleResolver();
+	}
+	
+	// Configurar mais um Bean para o Mail Sender.
+	@Bean
+	public MailSender mailSender() {
+		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+		mailSender.setHost("smtp.gmail.com");
+		mailSender.setUsername("andreybevilaqua@gmail.com");
+		mailSender.setPassword("#1512AfB9036#");
+		mailSender.setPort(587);
+		
+		// Faça a autenticação através de TLS
+		Properties mailProperties = new Properties();
+		mailProperties.put("mail.smtp.auth", true);
+		mailProperties.put("mail.smtp.starttls.enable", true);
+		mailSender.setJavaMailProperties(mailProperties);
+		
+		return mailSender;
+	}
 	
 }
+
+
+
+
+

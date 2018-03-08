@@ -3,6 +3,9 @@ package br.com.casadocodigo.loja.controller;
 import java.util.concurrent.Callable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.casadocodigo.loja.model.CarrinhoCompras;
 import br.com.casadocodigo.loja.model.DadosPagamento;
+import br.com.casadocodigo.loja.model.Usuario;
 
 @RequestMapping("/pagamento")
 @Controller
@@ -23,10 +27,16 @@ public class PagamentoController {
 
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	@Autowired
+	private MailSender mailSender;
 
+	// O @AuthenticationPrincipal é do Spring Security. Ele busca qual usuário está logado e nos retorna.
+	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/finalizar", method = RequestMethod.POST)
-	public Callable<ModelAndView> finalizar(RedirectAttributes redirectAttribute) {
+	public Callable<ModelAndView> finalizar(@AuthenticationPrincipal Usuario usuario
+																  , RedirectAttributes redirectAttribute) {
 
 		boolean retornoErro = false;
 		
@@ -39,7 +49,7 @@ public class PagamentoController {
 		} 
 		
 		if(retornoErro == true){
-			return (Callable<ModelAndView>) new ModelAndView("redirect:/casadocodigo");
+			return (Callable<ModelAndView>) new ModelAndView("redirect:/");
 		} else {
 
 			// O servidor não é assincrono (ou seja, apenas uma thread), tu tem
@@ -66,14 +76,28 @@ public class PagamentoController {
 				try {
 					String response = restTemplate.postForObject(uri, new DadosPagamento(carrinhoCompras.getTotal()),
 							String.class);
+					//enviaEmailCompraProduto(usuario);
 					redirectAttribute.addFlashAttribute("sucesso", response);
-					return new ModelAndView("redirect:/casadocodigo");
+					return new ModelAndView("redirect:/");
 				} catch (HttpClientErrorException e) {
 					e.printStackTrace();
 					redirectAttribute.addFlashAttribute("falha", "Valor maior que o permitido");
-					return new ModelAndView("redirect:/casadocodigo");
+					return new ModelAndView("redirect:/");
 				}
 			};
 		}
+	}
+
+	private void enviaEmailCompraProduto(Usuario usuario) {
+		SimpleMailMessage email = new SimpleMailMessage();
+		email.setSubject("Compra finalizada com sucesso");
+		//email.setTo(usuario.getEmail());
+		email.setTo("andreybevilacqua@gmail.com");
+		email.setText("Compra aprovada com sucesso no valor de " + carrinhoCompras.getTotal());
+		email.setFrom("andreybevilaqua@gmail.com");
+		
+		// O Spring tem um objeto chamado Mail Sender, que é quem envia o email.
+		mailSender.send(email);
+		
 	}
 }
