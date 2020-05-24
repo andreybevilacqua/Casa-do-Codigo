@@ -1,15 +1,15 @@
 package br.com.casadocodigo.loja.conf;
 
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
+import org.springframework.web.context.request.RequestContextListener;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
 import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
-
-import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
-import org.springframework.web.context.request.RequestContextListener;
-import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer{
 
@@ -70,12 +70,13 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	// Durante a subida do servidor, o profile que a gente quer que fique ativo, que funcione,
 	// é o profile dev.
 	// Para que ele encontre o profile, ele tem que ficar "ouvindo os contextos", portanto, usar o Listener que entregamos pra ele.
-//	@Override
-//	public void onStartup(ServletContext servletContext) throws ServletException {
-//		super.onStartup(servletContext);
-//		servletContext.addListener(RequestContextListener.class);
-//		servletContext.setInitParameter("spring.profiles.active", "dev");
-//	} // Método comentado pois, sempre que ele fazer o startup, ele setaria o profile como "dev". Para ir para o Heroku, temos que tirar isso.
+	// PARA RODAR LOCAL, TEM QUE DESCOMENTAR ESSE MÉTODO!!!
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		super.onStartup(servletContext);
+		servletContext.addListener(RequestContextListener.class);
+		servletContext.setInitParameter("spring.profiles.active", "dev");
+	} // Método comentado pois, sempre que ele fazer o startup, ele setaria o profile como "dev". Para ir para o Heroku, temos que tirar isso.
 
 }
 

@@ -1,15 +1,15 @@
 package br.com.casadocodigo.loja.model;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.WebApplicationContext;
 
 @Component
 // Cria uma instância do usuário para cada CarrinhoCompras
@@ -63,6 +63,10 @@ public class CarrinhoCompras implements Serializable{
 		Produto produto = new Produto();
 		produto.setId(produtoId);
 		itens.remove(new CarrinhoItem(produto, tipoPreco));
+	}
+	
+	public void zerarCarrinhoCompras() {
+		itens.clear();
 	}
 	
 }

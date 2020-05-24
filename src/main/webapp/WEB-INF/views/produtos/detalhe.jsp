@@ -8,6 +8,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="tags" %>
 
 <c:url value="/" var="contextPath" />
+
 <!-- Include é uma tag do JSP para tu importar um jsp para dentro de outro. -->
 <tags:pageTemplate titulo="${produto.titulo }">
 

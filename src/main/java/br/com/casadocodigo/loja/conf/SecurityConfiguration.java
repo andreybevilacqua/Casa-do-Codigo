@@ -1,5 +1,6 @@
 package br.com.casadocodigo.loja.conf;
 
+import br.com.casadocodigo.loja.dao.UsuarioDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -8,8 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import br.com.casadocodigo.loja.dao.UsuarioDao;
 
 @EnableWebMvcSecurity // Essa notação apenas habilita o que o Spring já faz.
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {

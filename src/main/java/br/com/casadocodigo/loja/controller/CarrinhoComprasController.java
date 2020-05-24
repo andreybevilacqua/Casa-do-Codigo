@@ -21,6 +21,7 @@ public class CarrinhoComprasController {
 
 	@Autowired
 	private ProdutoDao produtoDao;
+	
 	@Autowired
 	private CarrinhoCompras carrinho;
 	

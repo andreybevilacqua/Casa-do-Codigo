@@ -78,6 +78,7 @@ public class PagamentoController {
 							String.class);
 					//enviaEmailCompraProduto(usuario);
 					redirectAttribute.addFlashAttribute("sucesso", response);
+					zeraCarrinhoDeCompras(carrinhoCompras);
 					return new ModelAndView("redirect:/");
 				} catch (HttpClientErrorException e) {
 					e.printStackTrace();
@@ -99,5 +100,9 @@ public class PagamentoController {
 		// O Spring tem um objeto chamado Mail Sender, que é quem envia o email.
 		mailSender.send(email);
 		
+	}
+	
+	private void zeraCarrinhoDeCompras(CarrinhoCompras carrinhoCompras) {
+		carrinhoCompras.zerarCarrinhoCompras();
 	}
 }

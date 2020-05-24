@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../workspace/HackerRankEnvTest/HackerRankEnvTest.iml" filepath="$PROJECT_DIR$/../../../workspace/HackerRankEnvTest/HackerRankEnvTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/Lombok.iml" filepath="$PROJECT_DIR$/../estoquews/Lombok.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bytebank-biblioteca/bytebank-biblioteca.iml" filepath="$PROJECT_DIR$/../bytebank-biblioteca/bytebank-biblioteca.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bytebank-encapsulado/bytebank-encapsulado.iml" filepath="$PROJECT_DIR$/../bytebank-encapsulado/bytebank-encapsulado.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../workspace/bytebank-heranca/bytebank-heranca.iml" filepath="$PROJECT_DIR$/../../../workspace/bytebank-heranca/bytebank-heranca.iml" />
+      <module fileurl="file://$PROJECT_DIR$/casadocodigo.iml" filepath="$PROJECT_DIR$/casadocodigo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/estoquews.iml" filepath="$PROJECT_DIR$/../estoquews/estoquews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/estoquews-cliente.iml" filepath="$PROJECT_DIR$/../estoquews/estoquews-cliente.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/estoquews-web.iml" filepath="$PROJECT_DIR$/../estoquews/estoquews-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../excecoes/excecoes.iml" filepath="$PROJECT_DIR$/../excecoes/excecoes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/financas.iml" filepath="$PROJECT_DIR$/../estoquews/financas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/gerenciador.iml" filepath="$PROJECT_DIR$/../estoquews/gerenciador.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/gerenciador-final.iml" filepath="$PROJECT_DIR$/../estoquews/gerenciador-final.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../java-collections-gerenciador-cursos/java-collections-gerenciador-cursos.iml" filepath="$PROJECT_DIR$/../java-collections-gerenciador-cursos/java-collections-gerenciador-cursos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../workspace/java-ee-microservices/java-ee-microservices.iml" filepath="$PROJECT_DIR$/../../../workspace/java-ee-microservices/java-ee-microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../java-io/java-io.iml" filepath="$PROJECT_DIR$/../java-io/java-io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bytebank-herdado-conta/java-util-lambdas.iml" filepath="$PROJECT_DIR$/../bytebank-herdado-conta/java-util-lambdas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../java8/java8.iml" filepath="$PROJECT_DIR$/../java8/java8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../workspace/lightsOut/lightsOut.iml" filepath="$PROJECT_DIR$/../../../workspace/lightsOut/lightsOut.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../listaVipServlet/listaVipServlet.iml" filepath="$PROJECT_DIR$/../listaVipServlet/listaVipServlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/livraria.iml" filepath="$PROJECT_DIR$/../estoquews/livraria.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/livraria-ear.iml" filepath="$PROJECT_DIR$/../estoquews/livraria-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/livraria-wsclient.iml" filepath="$PROJECT_DIR$/../estoquews/livraria-wsclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/loja.iml" filepath="$PROJECT_DIR$/../estoquews/loja.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/loja-virtual.iml" filepath="$PROJECT_DIR$/../estoquews/loja-virtual.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lojaweb/lojaweb.iml" filepath="$PROJECT_DIR$/../lojaweb/lojaweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/produtos.iml" filepath="$PROJECT_DIR$/../estoquews/produtos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../produtos_maven/produtos_maven.iml" filepath="$PROJECT_DIR$/../produtos_maven/produtos_maven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-alura/spring-boot-alura.iml" filepath="$PROJECT_DIR$/spring-boot-alura/spring-boot-alura.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../estoquews/xml-com-java.iml" filepath="$PROJECT_DIR$/../estoquews/xml-com-java.iml" />
+    </modules>
+  </component>
+</project>

@@ -53,9 +53,6 @@
 
 		<h1>Lista de Produtos</h1>
 
-		<div>${sucesso}</div>
-		<div>${falha}</div>
-
 		<table class="table table-bordered table-striped table-condensed">
 			<tr>
 				<!-- Os titulos da tabela -->
